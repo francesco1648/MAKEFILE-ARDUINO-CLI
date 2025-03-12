@@ -10,7 +10,7 @@
 #include "Debug.h"
 
 #include "html.h"
-#include "definitions.h"
+#include "../../../include/definitions.h"
 
 /**
  * Provides a class for managing a WiFi connection and HTTP server for remote firmware updates and configuration management.

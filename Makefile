@@ -3,7 +3,7 @@ SKETCH_PATH = $(CURDIR)
 SKETCH_NAME = $(notdir $(SKETCH_PATH))
 
 # Board configuration
-BOARD_FQBN = rp2040:rp2040:rpipico
+BOARD_FQBN ?= rp2040:rp2040:rpipicow
 OUTPUT_DIR = $(CURDIR)/build/output
 BUILD_DIR = $(CURDIR)/build
 LIBS_DIR = $(CURDIR)/lib
@@ -20,12 +20,16 @@ SUCCESS_SYMBOL = " Compilation completed successfully! "
 ERROR_SYMBOL = " Compilation error! "
 COMPILATION_SYMBOL = " Compilation in progress... "
 
+MODULE_DEFINE ?= "MOD_HEAD"
+DESTINATION ?=  'E:\'
+
+MODULE =
 define print_green
-	@powershell -Command "Write-Host '$1' -ForegroundColor Green"
+	@pwsh  -Command "Write-Host '$1' -ForegroundColor Green"
 endef
 
 define print_red
-	@powershell -Command "Write-Host '$1' -ForegroundColor Red"
+	@pwsh  -Command "Write-Host '$1' -ForegroundColor Red"
 endef
 
 PORT ?= $(shell arduino-cli board list | findstr "Raspberry Pi Pico" | for /f "tokens=1" %%a in ('more') do @echo %%a)
@@ -39,7 +43,7 @@ PORT ?= $(shell arduino-cli board list | findstr "Raspberry Pi Pico" | for /f "t
 compile: clean_all
 	$(call print_green, $(COMPILATION_SYMBOL))
 	@arduino-cli compile --fqbn $(BOARD_FQBN) --build-path $(BUILD_DIR) $(SKETCH_PATH) --output-dir $(OUTPUT_DIR) $(LIBRARY_FLAGS) \
-		$(foreach dir, $(INCLUDE_PATHS), --build-property "compiler.cpp.extra_flags=-I$(dir)")
+		$(foreach dir, $(INCLUDE_PATHS), --build-property "compiler.cpp.extra_flags=-I$(dir) -D$(MODULE_DEFINE)")
 
 compile_fast:
 	@arduino-cli compile --fqbn $(BOARD_FQBN) "$(SKETCH_PATH)"
@@ -58,8 +62,8 @@ upload:
 upload_bootsel:
 	@if exist "$(OUTPUT_DIR)/$(SKETCH_NAME).ino.uf2" ( \
 		echo "Uploading .uf2 file to Raspberry Pi Pico..." && \
-		powershell -Command "Copy-Item '$(OUTPUT_DIR)/$(SKETCH_NAME).ino.uf2' -Destination 'E:\' -Force" || ( \
-		    echo "Error while uploading, please make sure the pico is in BOOTSEL mode and is recognized as E:\ storage drive. If it is recognized as another drive, please change the 'Destination' field of the upload_bootsel command"; \
+		powershell -Command "Copy-Item '$(OUTPUT_DIR)/$(SKETCH_NAME).ino.uf2' -Destination  $(DESTINATION)  -Force" || ( \
+		    echo "Error while uploading, please make sure the pico is in BOOTSEL mode and is recognized as $(DESTINATION) storage drive. If it is recognized as another drive, please change the 'Destination' field of the upload_bootsel command"; \
 		) \
 	) else ( \
 		echo ".uf2 file not found. Run 'make compile' before uploading the code." \
@@ -99,7 +103,7 @@ monitor:
 # Command guide
 help:
 	@echo "Available commands:"
-	@echo "  make compile       - Compile the project"
+	@echo "  make compile       - Compile the project. E possibile aggiungere il parametro MODULE_DEFINE per definire un modulo specifico"
 	@echo "  make compile_fast  - Fast compilation without additional libraries"
 	@echo "  make upload        - Upload the project to Raspberry Pi Pico"
 	@echo "  make upload_bootsel - Upload the .uf2 file manually to E:/"

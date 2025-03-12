@@ -23,7 +23,7 @@
 
 
 
-//#include "WebManagement.h"
+#include "WebManagement.h"
 
 
 
@@ -57,7 +57,7 @@ DynamixelMotor motorPitchB(SERVO_B_ID);
 
 float oldAngle;
 
-//WebManagement wm(CONF_PATH);
+WebManagement wm(CONF_PATH);
 
 Display display;
 
@@ -142,8 +142,8 @@ void setup() {
 
  // LittleFS.begin();
 
- // String hostname = WIFI_HOSTBASE+String(CAN_ID);
- // wm.begin(WIFI_SSID, WIFI_PWD, hostname.c_str());
+  //String hostname = WIFI_HOSTBASE+String(CAN_ID);
+// wm.begin(WIFI_SSID, WIFI_PWD, hostname.c_str());
 
   // CAN initialization
   mcp2515.reset();
@@ -295,7 +295,7 @@ void loop() {
     motorTrRight.stop();
   }
 
- // wm.handle();
+ wm.handle();
   //display.handleGUI();
 
   display.showLogo();
