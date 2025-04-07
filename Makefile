@@ -26,7 +26,6 @@ DESTINATION ?= 'E:\'
 # OS detection and choose shell command
 ifeq ($(OS),Windows_NT)
     PORT ?= $(shell arduino-cli board list | findstr "Raspberry Pi Pico" | for /f "tokens=1" %%a in ('more') do @echo %%a)
-
     DETECT_OS = Windows
     BOOTSEL_PATH = E:
     SHELL_CMD = pwsh -Command
@@ -53,6 +52,9 @@ else
             @echo "\033[31m$(1)\033[0m"
         endef
     else
+        # Main targets
+        .PHONY: all compile upload clean help auto_com_port port
+
         PORT ?= /dev/ttyACM0
         DETECT_OS = Linux
         BOOTSEL_PATH = /media/$(USER)/RPI-RP2
@@ -72,17 +74,28 @@ endif
 
 
 
-# Main targets
-.PHONY: all compile upload clean help auto_com_port port
 
 all: clean compile upload
 
 compile:
 	$(call print_green, $(COMPILATION_SYMBOL))
-	
+
 	@arduino-cli compile --fqbn $(BOARD_FQBN) --build-path $(BUILD_DIR) $(SKETCH_PATH) --output-dir $(OUTPUT_DIR) $(LIBRARY_FLAGS) \
 		$(foreach dir, $(INCLUDE_PATHS), --build-property "compiler.cpp.extra_flags=-I$(dir) -D$(MODULE_DEFINE)")
 
+
+
+
+ifeq ($(DETECT_OS),Windows)
+upload:
+	@echo "Check that you have entered the correct COM port. The current COM port is: $(PORT)"
+	@if exist "$(OUTPUT_DIR)/$(SKETCH_NAME).ino.bin" ( \
+		echo "Uploading .bin file to Raspberry Pi Pico..." & \
+		arduino-cli upload -p $(PORT) --fqbn $(BOARD_FQBN) --input-dir $(OUTPUT_DIR) $(SKETCH_NAME).ino.bin \
+	) else ( \
+		echo " .bin file not found. Run 'make compile' before uploading the code." \
+	)
+else
 upload:
 ifeq ($(PORT),)
 	$(call print_red, "❌ Nessuna board Pico rilevata!")
@@ -93,18 +106,57 @@ else
 		echo 'File .bin non trovato!' && exit 1; \
 	fi"
 endif
+endif
 
+
+ifeq ($(DETECT_OS),Windows)
+upload_bootsel:
+	@if exist "$(OUTPUT_DIR)/$(SKETCH_NAME).ino.uf2" ( \
+		echo "Uploading .uf2 file to Raspberry Pi Pico..." && \
+		powershell -Command "Copy-Item '$(OUTPUT_DIR)/$(SKETCH_NAME).ino.uf2' -Destination  $(DESTINATION)  -Force" || ( \
+		    echo "Error while uploading, please make sure the pico is in BOOTSEL mode and is recognized as $(DESTINATION) storage drive. If it is recognized as another drive, please change the 'Destination' field of the upload_bootsel command"; \
+		) \
+	) else ( \
+		echo ".uf2 file not found. Run 'make compile' before uploading the code." \
+	)
+else
 upload_bootsel:
 	@$(SHELL_CMD) "if [ -f '$(OUTPUT_DIR)/$(SKETCH_NAME).ino.uf2' ]; then \
 		cp '$(OUTPUT_DIR)/$(SKETCH_NAME).ino.uf2' '$(BOOTSEL_PATH)/' && \
 		echo 'File UF2 copiato in $(BOOTSEL_PATH)'; \
 	else \
 		echo 'File UF2 non trovato!' && exit 1; \
-	fi"
+	fi"clean_all:
+	@echo BUILD_DIR is: "$(BUILD_DIR)"
 
+endif
+
+
+
+
+ifeq ($(DETECT_OS),Windows)
 clean:
-	@$(SHELL_CMD) "if [ -d $(BUILD_DIR) ]; then rm -rf $(BUILD_DIR); fi"
-	$(call print_green, "Clean completed.")
+	@echo BUILD_DIR is: "$(BUILD_DIR)"
+	@if exist "$(BUILD_DIR)\output" ( \
+		echo The build folder exists. & \
+		rd /s /q "$(BUILD_DIR)" & \
+		echo Build folder content removed. \
+	) else ( \
+		echo The output folder does not exist. \
+	)
+else
+clean:
+	@if [ -d "$(BUILD_DIR)/output" ]; then \
+		$(SHELL_CMD) "rm -rf $(BUILD_DIR)" && \
+		$(call print_green, 'Clean completed.'); \
+	else \
+		echo The output folder does not exist.; \
+	fi
+endif
+
+
+
+
 
 monitor:
 	@arduino-cli monitor -p $(PORT) -c baudrate=115200
@@ -126,3 +178,5 @@ auto_com_port:
 port:
 	@echo "List of COM ports detected by the system:"
 	@arduino-cli board list
+show_os:
+	@echo "Detected OS: $(DETECT_OS)"
