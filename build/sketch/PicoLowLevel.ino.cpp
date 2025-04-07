@@ -1,3 +1,5 @@
+#include <Arduino.h>
+#line 1 "/home/francesco/Desktop/ISAAC/PLL_PROVE_cp/PicoLowLevel/PicoLowLevel.ino"
 /*
   Blink
 
@@ -23,6 +25,11 @@
 */
 
 // the setup function runs once when you press reset or power the board
+#line 26 "/home/francesco/Desktop/ISAAC/PLL_PROVE_cp/PicoLowLevel/PicoLowLevel.ino"
+void setup();
+#line 32 "/home/francesco/Desktop/ISAAC/PLL_PROVE_cp/PicoLowLevel/PicoLowLevel.ino"
+void loop();
+#line 26 "/home/francesco/Desktop/ISAAC/PLL_PROVE_cp/PicoLowLevel/PicoLowLevel.ino"
 void setup() {
   // initialize digital pin LED_BUILTIN as an output.
   pinMode(LED_BUILTIN, OUTPUT);
@@ -36,3 +43,4 @@ void loop() {
   digitalWrite(LED_BUILTIN, LOW);   // turn the LED off by making the voltage LOW
   delay(1000);                      // wait for a second
 }
+
