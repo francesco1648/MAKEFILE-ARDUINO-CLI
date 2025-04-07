@@ -3,7 +3,7 @@ SKETCH_PATH = $(CURDIR)
 SKETCH_NAME = $(notdir $(SKETCH_PATH))
 
 # Board configuration
-BOARD_FQBN ?= rp2040:rp2040:rpipicow
+BOARD_FQBN ?= rp2040:rp2040:rpipico
 OUTPUT_DIR = $(CURDIR)/build/output
 BUILD_DIR = $(CURDIR)/build
 LIBS_DIR = $(CURDIR)/lib
@@ -20,7 +20,7 @@ SUCCESS_SYMBOL = " Compilation completed successfully! "
 ERROR_SYMBOL = " Compilation error! "
 COMPILATION_SYMBOL = " Compilation in progress... "
 
-MODULE_DEFINE ?= "MOD_HEAD"
+MODULE_DEFINE ?= "MK1_MOD1"
 DESTINATION ?=  'E:\'
 
 MODULE =
