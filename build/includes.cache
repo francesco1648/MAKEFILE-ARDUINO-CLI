@@ -1,0 +1,17 @@
+[
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.5.1\\cores\\rp2040"
+  },
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.5.1\\variants\\rpipico"
+  },
+  {
+    "Sourcefile": "C:\\Users\\Titania\\Desktop\\isaac\\aab\\PLL_PROVE\\build\\sketch\\PLL_PROVE.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  }
+]
