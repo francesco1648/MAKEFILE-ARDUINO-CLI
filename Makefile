@@ -1,104 +1,152 @@
-
+# Basic settings
 SKETCH_PATH = $(CURDIR)
-
-
 SKETCH_NAME = $(notdir $(SKETCH_PATH))
 
-# Configurazione board
-BOARD_FQBN = rp2040:rp2040:rpipico
-OUTPUT_DIR = $(CURDIR)/build
+# Board configuration
+BOARD_FQBN ?= rp2040:rp2040:rpipico
+OUTPUT_DIR = $(CURDIR)/build/output
+BUILD_DIR = $(CURDIR)/build
+LIBS_DIR = $(CURDIR)/lib
+INCLUDE_DIR = $(CURDIR)/include
 
+LIBRARY_PATHS = $(wildcard $(LIBS_DIR)/*/src)
+LIBRARY_FLAGS = $(addprefix --library ,$(LIBRARY_PATHS))
 
-PORT = COM12
+INCLUDE_PATHS = $(INCLUDE_DIR) $(LIBRARY_PATHS)
+CFLAGS += $(foreach dir, $(INCLUDE_PATHS), -I$(dir))
+CXXFLAGS += $(foreach dir, $(INCLUDE_PATHS), -I$(dir))
 
-#PORT = $(shell arduino-cli board list | findstr /r /c:"COM[0-9]*" | findstr /v "Unknown" | findstr /v "core=\"\"")
+SUCCESS_SYMBOL = "======================================== Compilation completed successfully ========================================="
+ERROR_SYMBOL = "======================================== Compilation error! ========================================"
+COMPILATION_SYMBOL = "======================================== Compilation in progress ========================================"
 
-LIB_DIRS = \
-    $(CURDIR)/lib/SmartMotor/src \
-    $(CURDIR)/lib/AbsoluteEncoder/src \
-    $(CURDIR)/lib/DynamixelSerial/src \
-    $(CURDIR)/lib/Battery/src \
-    $(CURDIR)/lib/Debug/src \
-    $(CURDIR)/lib/Can/src \
-    $(CURDIR)/lib/Display/src
+MODULE_DEFINE ?= "MK2_MOD1"
+DESTINATION ?=  'D:\'
 
-
-CFLAGS += $(foreach dir, $(LIB_DIRS), -I$(dir))
-
-SUCCESS_SYMBOL = " Compilazione completata con successo!"
-ERROR_SYMBOL = " Errore durante la compilazione!"
-COMPILATION_SYMBOL = " Compilazione in corso..."
-
-
+MODULE =
 define print_green
-	@powershell -Command "Write-Host '$1' -ForegroundColor Green"
+	@pwsh  -Command "Write-Host '$1' -ForegroundColor Green"
 endef
 
 define print_red
-	@powershell -Command "Write-Host '$1' -ForegroundColor Red"
+	@pwsh  -Command "Write-Host '$1' -ForegroundColor Red"
 endef
 
-# Compilazione
-compile:
+PORT ?= $(shell arduino-cli board list | findstr "Raspberry Pi Pico" | for /f "tokens=1" %%a in ('more') do @echo %%a)
+
+.DEFAULT:
+	@echo "Invalid command: '$@'"
+	@echo "Use 'make help' to see the list of available commands."
+	@$(MAKE) help
+
+# Compilation
+compile: clean_all
 	$(call print_green, $(COMPILATION_SYMBOL))
-	@arduino-cli compile --fqbn $(BOARD_FQBN) --build-path $(OUTPUT_DIR) $(SKETCH_PATH)
-
-
-
-# Upload
-upload_bootsel:
-
-	@echo "Controllando se il file .uf2 esiste..."
-
-	@echo "Il file .uf2 esiste: $(OUTPUT_DIR)/$(SKETCH_NAME).ino.uf2"
-	@echo "Uploading .uf2 file to Raspberry Pi Pico..."
-	@echo "Copia il file su E:\..."
-	@echo "Copia del file .uf2 su E:\ utilizzando PowerShell..."
-	@powershell -Command "Copy-Item '$(OUTPUT_DIR)/$(SKETCH_NAME).ino.uf2' -Destination 'E:\' -Force"
-
-upload:
-
-
-	@echo "Uploading .bin file to Raspberry Pi Pico..."
-	@arduino-cli upload -p $(PORT) --fqbn $(BOARD_FQBN) $(SKETCH_PATH)
-
-
-
+	@arduino-cli compile --fqbn $(BOARD_FQBN) --build-path $(BUILD_DIR) $(SKETCH_PATH) --output-dir $(OUTPUT_DIR) $(LIBRARY_FLAGS) \
+		$(foreach dir, $(INCLUDE_PATHS), --build-property "compiler.cpp.extra_flags=-I$(dir) -D$(MODULE_DEFINE)") && \
+	$(call print_green, $(SUCCESS_SYMBOL)) || \
+	$(call print_red, $(ERROR_SYMBOL))
 
 compile_fast:
-	arduino-cli compile --fqbn $(BOARD_FQBN) "$(SKETCH_PATH)"
+	@arduino-cli compile --fqbn $(BOARD_FQBN) "$(SKETCH_PATH)"
 
-clean:
-	$(DEL) /F /Q "$(OUTPUT_DIR)\*"
-	$(RMDIR) /S /Q "$(OUTPUT_DIR)"
-	$(call print_green, "Cartella di build pulita.")
+compile_all:
+	$(MAKE) compile BUILD_DIR=$(CURDIR)/build1 OUTPUT_DIR=$(CURDIR)/out_MK2_MOD1 MODULE_DEFINE="MK2_MOD1"
+	$(MAKE) compile BUILD_DIR=$(CURDIR)/build2 OUTPUT_DIR=$(CURDIR)/out_MK2_MOD2 MODULE_DEFINE="MK2_MOD2"
+
+# Upload .bin file
+upload:
+	@echo "Check that you have entered the correct COM port. The current COM port is: $(PORT)"
+	@if exist "$(OUTPUT_DIR)/$(SKETCH_NAME).ino.bin" ( \
+		echo "Uploading .bin file to Raspberry Pi Pico..." & \
+		arduino-cli upload -p $(PORT) --fqbn $(BOARD_FQBN) --input-dir $(OUTPUT_DIR) $(SKETCH_NAME).ino.bin \
+	) else ( \
+		echo " .bin file not found. Run 'make compile' before uploading the code." \
+	)
+
+# Upload .uf2 file in BOOTSEL mode
+upload_bootsel:
+	@if exist "$(OUTPUT_DIR)/$(SKETCH_NAME).ino.uf2" ( \
+		echo "Uploading .uf2 file to Raspberry Pi Pico..." && \
+		powershell -Command "Copy-Item '$(OUTPUT_DIR)/$(SKETCH_NAME).ino.uf2' -Destination  $(DESTINATION)  -Force" || ( \
+		    echo "Error while uploading, please make sure the pico is in BOOTSEL mode and is recognized as $(DESTINATION) storage drive. If it is recognized as another drive, please change the 'Destination' field of the upload_bootsel command"; \
+		) \
+	) else ( \
+		echo ".uf2 file not found. Run 'make compile' before uploading the code." \
+	)
 
 
+# Clean the build folder
+clean_all:
+	@echo BUILD_DIR is: "$(BUILD_DIR)"
+	@if exist "$(BUILD_DIR)\output" ( \
+		echo The build folder exists. & \
+		rd /s /q "$(BUILD_DIR)" & \
+		echo Build folder content removed. \
+	) else ( \
+		echo The output folder does not exist. \
+	)
+
+
+clean_output:
+	@echo "Cleaning in progress..."
+	@if exist "$(BUILD_DIR)/output" ( \
+		echo "Removing files in the build folder..." \
+		rd /s /q "$(BUILD_DIR)/output" \
+		echo "Content of the output folder removed." \
+	) else ( \
+		echo "The output folder does not exist." \
+	)
+	$(call print_green, "Content of the output folder cleaned.")
+
+
+
+
+# Serial monitor
 monitor:
 	arduino-cli monitor -p $(PORT) -c baudrate=115200
 
-
-all: compile upload
-
-
-build:
-
-	arduino-cli compile --fqbn $(BOARD_FQBN) --output-dir $(OUTPUT_DIR) "$(SKETCH_PATH)"
-	@echo "Build completato: $(OUTPUT_DIR)/$(SKETCH_NAME).uf2"
-
+# Command guide
 help:
-	@echo "Comandi disponibili:"
-	@echo "  make compile      - Compila il progetto"
-	@echo "  make upload       - Carica il progetto sulla Raspberry Pi Pico"
-	@echo "  make monitor      - Avvia il monitor seriale"
-	@echo "  make all          - Compila e carica il progetto in un solo passaggio"
-	@echo "  make help         - Mostra questa guida"
-	@echo "  make com_port     - Stampa la porta COM utilizzata"
-	@echo "  make auto_com_port - Rileva automaticamente la porta COM del Raspberry Pi Pico o Arduino"
+	@echo "Available commands:"
+	@echo "  make compile       - Compile the project. E possibile aggiungere il parametro MODULE_DEFINE per definire un modulo specifico"
+	@echo "  make compile_fast  - Fast compilation without additional libraries"
+	@echo "  make upload        - Upload the project to Raspberry Pi Pico"
+	@echo "  make upload_bootsel - Upload the .uf2 file manually to E:/"
+	@echo "  make monitor       - Start the serial monitor"
+	@echo "  make all           - Compile and upload the project in one step"
+	@echo "  make clean         - Clean compilation files"
+	@echo "  make help          - Show this guide"
+	@echo "  make auto_com_port - Automatically detect the list of COM port of the Raspberry Pi Pico"
+	@echo "  make port          - List all available COM ports"
 
-
+# Print detected COM port
 auto_com_port:
-	@echo "La porta COM rilevata automaticamente e : $(PORT)"
+	@echo "The automatically detected COM port is: $(PORT)"
+
+# List all available COM ports
 port:
-	@echo "Elenco delle porte COM rilevate dal sistema:"
+	@echo "List of COM ports detected by the system:"
 	@arduino-cli board list
+
+duck:
+	@powershell -Command "for ($$i = 10; $$i -ge 0; $$i--) { \
+	    $$spaces = '   ' * $$i; \
+		Clear-Host; \
+		Write-Host ($$spaces + '  __         '); \
+	    Write-Host ($$spaces + '<(` )'); \
+	    Write-Host ($$spaces + ' /  \______//'); \
+	    Write-Host ($$spaces + ' \  \\     /'); \
+	    Write-Host ($$spaces + '  \_______/ '); \
+		Write-Host ($$spaces + '  _/   _\ '); \
+		Start-Sleep -Milliseconds 500; \
+	} \
+	Clear-Host; \
+	$$spaces = ' ' * 0; \
+	Write-Host ($$spaces + '  __             ________ '); \
+	Write-Host ($$spaces + '<(` )           /        \'); \
+	Write-Host ($$spaces + ' /  \______//  <  QUACK!  |'); \
+	Write-Host ($$spaces + ' \   \\    /    \________/'); \
+	Write-Host ($$spaces + '  \_______/ '); \
+	Write-Host ($$spaces + '  _/   _\ '); \
+	"
