@@ -1,16 +1,18 @@
-# Descrizione
+# Description
 
-Sviluppo di un Makefile in grado di gestire l’intero processo di compilazione e caricamento (sia in modalità BOOTSEL che tramite porta seriale) di un progetto Arduino IDE.
-In questo esempio viene utilizzato il codice relativo alla scheda PicoLowLevel, ma lo stesso Makefile può essere adattato facilmente per compilare qualsiasi altro sketch .ino.
+Development of a Makefile capable of managing the entire process of compiling and uploading (both in BOOTSEL mode and through the serial port) an Arduino IDE project.
+In this example, the code related to the PicoLowLevel board is used, but the same Makefile can easily be adapted to compile any other `.ino` sketch.
 
-# Nota importante:
-Il nome della cartella principale deve essere identico al nome del file .ino principale (top header) che si desidera compilare e il makefile deve essere nella stessa cartella del ino principale (top header).
-Inoltre, la struttura del progetto deve rispettare il seguente formato:
-   ```bash
-my_project/              ← cartella principale (SKETCH_PATH)
-├── my_project.ino       ← file principale
-├── include/             ← eventuali header .h
-├── lib/                 ← eventuali librerie custom
+# Important note
+
+The name of the main folder must be identical to the name of the main `.ino` file (top header) that you want to compile, and the Makefile must be located in the same folder as the main `.ino` file (top header).
+Furthermore, the project structure must follow the format below:
+
+```bash
+my_project/              ← main folder (SKETCH_PATH)
+├── my_project.ino       ← main file
+├── include/             ← optional header files (.h)
+├── lib/                 ← optional custom libraries
 │   ├── libA/
 │   │   └── src/
 │   │       ├── file.cpp
@@ -19,6 +21,7 @@ my_project/              ← cartella principale (SKETCH_PATH)
 │       └── src/
 │           ├── file.cpp
 │           └── file.h
-├── Makefile             ← questo file
-└── build/               ← (verrà creata automaticamente)
-  ```
+├── Makefile             ← this file
+└── build/               ← (automatically created)
+```
+
