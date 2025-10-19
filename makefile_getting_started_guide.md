@@ -1,31 +1,36 @@
-#  Guida all’utilizzo del Makefile per Raspberry Pi Pico / Pico W
 
-Questo documento spiega come **compilare**, **caricare** e **monitorare** uno sketch su **Raspberry Pi Pico** o **Raspberry Pi Pico W** utilizzando `make` e `arduino-cli`.  
-In questo modo puoi gestire tutto da terminale, senza aprire l’IDE Arduino.
+# Guide to Using the Makefile for Raspberry Pi Pico / Pico W
 
----
+This document explains how to **compile**, **upload**, and **monitor** a sketch on the **Raspberry Pi Pico** or **Raspberry Pi Pico W** using `make` and `arduino-cli`.
+This allows you to manage everything from the terminal, without opening the Arduino IDE.
 
-##  Requisiti
+***
 
-Assicurati di avere installato e configurato:
+## Requirements
+
+Make sure you have installed and configured:
 
 - **Arduino CLI**
-  ```bash
-  arduino-cli version 
-  ```
 
-Supporto per Raspberry Pi Pico
+```bash
+arduino-cli version
+```
 
-  ```bash
+
+RPi Pico support:
+
+```bash
 arduino-cli core install rp2040:rp2040
-  ```
+```
 
-##  Struttura del progetto
-  ```bash
-my_project/              ← cartella principale (SKETCH_PATH)
-├── my_project.ino       ← file principale
-├── include/             ← eventuali header .h
-├── lib/                 ← eventuali librerie custom
+
+## Project Structure
+
+```bash
+my_project/              ← main folder (SKETCH_PATH)
+├── my_project.ino       ← main file
+├── include/             ← any .h headers
+├── lib/                 ← any custom libraries
 │   ├── libA/
 │   │   └── src/
 │   │       ├── file.cpp
@@ -34,194 +39,214 @@ my_project/              ← cartella principale (SKETCH_PATH)
 │       └── src/
 │           ├── file.cpp
 │           └── file.h
-├── Makefile             ← questo file
-└── build/               ← (verrà creata automaticamente)
-  ```
+├── Makefile             ← this file
+└── build/               ← (auto-created)
+```
 
-# 2️⃣ Scelta della board
-Nel Makefile è presente la variabile:
 
-  ```make
+# Board Selection
+
+In the Makefile, there is the variable:
+
+```make
 BOARD_FQBN ?= rp2040:rp2040:rpipico
-  ```
-In base alla scheda che stai usando, puoi modificare così:
+```
+
+Depending on your board, change it as follows:
 
 - Raspberry Pi Pico --> rp2040:rp2040:rpipico
-- Raspberry Pi Pico W   --> rp2040:rp2040:rpipicow
+- Raspberry Pi Pico W --> rp2040:rp2040:rpipicow
 
-Per cambiarla, apri il Makefile e sostituisci la riga:
+To change it, open the Makefile and replace the line:
 
-  ```bash
+```bash
 BOARD_FQBN ?= rp2040:rp2040:rpipico
-  ```
-con:
+```
 
-  ```bash
+with:
+
+```bash
 BOARD_FQBN ?= rp2040:rp2040:rpipicow
-  ```
----
+```
 
-# Comandi principali
-Spostati nella cartella del progetto:
 
-  ```bash
-cd percorso/del/progetto
-  ```
-##  Compilare il progetto
+***
+
+# Main Commands
+
+Navigate to the project folder:
+
+```bash
+cd path/to/project
+```
+
+
+## Compile the Project
 
 ```bash
 make compile
 ```
 
-Compila lo sketch e genera i file `.bin` e `.uf2` nella cartella `build/output`.
+Compiles the sketch and generates `.bin` and `.uf2` files in `build/output`.
 
-- Compilare una variante specifica:
+- Compile a specific variant:
 
 ```bash
 make compile MODULE_DEFINE="MK2_MOD2"
 ```
 
-- Compilazione veloce (senza librerie aggiuntive):
+- Fast compile (no extra libraries):
 
 ```bash
 make compile_fast
 ```
 
-- Compilare tutte le varianti:
+- Compile all variants:
 
 ```bash
 make compile_all
 ```
 
-Compila due versioni (es. MK2_MOD1 e MK2_MOD2) in cartelle separate (`out_MK2_MOD1` e `out_MK2_MOD2`).
+Compiles two versions (e.g., MK2_MOD1 and MK2_MOD2) in separate folders (`out_MK2_MOD1` and `out_MK2_MOD2`).
 
+## Uploading the Program to the Pico
 
-##  Caricare il programma sul Pico
-Dopo la compilazione, puoi caricare il programma in due modi diversi:
+After compilation, you can upload the program in two ways:
 
-### Metodo 1: Upload in modalità BOOTSEL
-Questo metodo utilizza il file .uf2 e non richiede la porta seriale.
+### Method 1: Upload in BOOTSEL Mode
 
-Procedura:
+This uses the .uf2 file and does not require the serial port.
 
-- Premi e tieni premuto il pulsante BOOTSEL (l’unico sulla scheda).
-- Collega il Pico al PC tramite USB mantenendo premuto BOOTSEL.
-- Rilascia il pulsante: il PC riconoscerà il Pico come unità esterna (es. E:).
-- Apri “Questo PC” e verifica la lettera dell’unità.
-- Apri il Makefile e cerca questa riga:
+Procedure:
+
+- Press and hold the BOOTSEL button (the only one on the board).
+- Connect the Pico to the PC via USB while keeping BOOTSEL pressed.
+- Release the button: the PC will detect the Pico as an external drive (e.g. E:).
+- Open “This PC” and check the drive letter.
+- Open the Makefile and look for this line:
 
 ```bash
 DESTINATION ?= 'D:\'
 ```
 
-! Sostituisci D: con la lettera corretta (es. 'E:\').
-Questa operazione va fatta solo una volta: il PC riconoscerà sempre la stessa unità.
+! Replace D: with the correct letter (e.g., 'E:\').
+You only need to do this once: the PC will always recognize the same drive.
 
-Caricamento:
-
-```bash
-make upload_bootsel
-```
-Il file .uf2 verrà copiato automaticamente sul Pico e il programma partirà subito.
-
-Per i caricamenti successivi:
-Metti il Pico in BOOTSEL (premendo il tasto prima di collegarlo) e lancia nuovamente:
+Uploading:
 
 ```bash
 make upload_bootsel
 ```
 
-### Metodo 2: Upload tramite porta seriale (COM)
-Questo metodo usa la porta seriale del Pico collegato al PC in modalità normale.
+The .uf2 file will be automatically copied to the Pico and the program will start immediately.
 
-Procedura:
+For subsequent uploads:
+Put the Pico in BOOTSEL (hold the button before connecting) and run:
 
-- Collega il Pico al PC (senza premere BOOTSEL).
-- Visualizza le porte COM disponibili:
+```bash
+make upload_bootsel
+```
 
-    ```bash
-    make port
-    ```
 
-Verrà mostrata una lista simile a:
+### Method 2: Upload via Serial Port (COM)
+
+This uses the serial port of the Pico connected to the PC normally.
+
+Procedure:
+
+- Connect the Pico to the PC (do not press BOOTSEL).
+- List available COM ports:
+
+```bash
+make port
+```
+
+
+A list such as the following will appear:
 
 ```bash
 COM1
 COM2 (Raspberry Pi Pico)
 ```
-Se il Pico è collegato, ad esempio, sulla COM2, esegui:
+
+If your Pico is connected on COM2, run:
 
 ```bash
 make upload PORT=COM2
 ```
-Il Makefile utilizzerà il file .bin generato dalla compilazione e lo caricherà automaticamente.
 
-## Aprire il monitor seriale
-Per visualizzare i messaggi Serial.print o Serial.println del tuo programma:
+The Makefile will use the compiled .bin file and upload it automatically.
 
-Collega il Pico al PC.
+## Open the Serial Monitor
 
-Trova la porta COM:
+To view Serial.print or Serial.println messages from your program:
+
+Connect the Pico to the PC.
+
+Find the COM port:
+
 ```bash
 make port
 ```
-Apri il monitor seriale specificando la porta:
+
+Open the serial monitor by specifying the port:
 
 ```bash
 make monitor PORT=COM2
 ```
-Il baud rate predefinito è 115200.
 
-## Pulizia dei file di compilazione
-Pulizia completa della cartella di build:
+The default baud rate is 115200.
 
+## Clean Build Files
+
+Clean the entire build folder:
 
 ```bash
 make clean_all
 ```
-Pulizia parziale (solo la cartella di output):
+
+Partial clean (output folder only):
 
 ```bash
 make clean_output
-
 ```
-## Elenco completo dei comandi
-|Comando	|Descrizione|
-|------|------|
-|make compile	|Compila il progetto|
-|make compile_fast|	Compilazione rapida|
-make compile_all	|Compila entrambe le versioni (MK2_MOD1 e MK2_MOD2)|
-make upload	|Carica tramite porta seriale (COM)|
-make upload_bootsel	|Carica in modalità BOOTSEL (unità USB)|
-make monitor	|Apre il monitor seriale|
-make port|	Mostra le porte COM disponibili|
-make auto_com_port|	Rileva automaticamente la COM del Pico|
-make clean_all	|Rimuove tutti i file di build|
-make clean_output	|Rimuove solo i file di output|
-make help	|Mostra la guida dei comandi|
 
-## Suggerimenti utili
-Dopo il primo caricamento in BOOTSEL, non serve più modificare DESTINATION.
 
-Se hai più Pico collegati, verifica sempre quale COM viene assegnata.
+## Complete List of Commands
 
-Puoi concatenare i comandi:
+| Command | Description |
+| :-- | :-- |
+| make compile | Compiles the project |
+| make compile_fast | Fast compile |
+| make compile_all | Compiles both versions (MK2_MOD1 and MK2_MOD2) |
+| make upload | Upload via serial port (COM) |
+| make upload_bootsel | Upload in BOOTSEL mode (USB drive) |
+| make monitor | Opens the serial monitor |
+| make port | Shows available COM ports |
+| make auto_com_port | Automatically detects Pico's COM |
+| make clean_all | Removes all build files |
+| make clean_output | Removes only output files |
+| make help | Shows command help |
 
-bash
-Copia codice
+## Useful Tips
+
+After the first upload in BOOTSEL, you don’t need to change DESTINATION again.
+
+If you have multiple Picos connected, always check which COM is assigned.
+
+You can chain commands:
+
+```bash
 make compile && make upload PORT=COM2
-Su Linux o macOS, sostituisci:
-
-rd /s /q → rm -rf
-
-findstr → grep
+```
 
 ⚠️ Troubleshooting
-Problema	Possibile causa	Soluzione
-Il Pico non appare tra le porte COM	Driver non installato	Installa i driver USB per Pico oppure usa la modalità BOOTSEL
-Il comando make upload fallisce	Porta COM errata	Controlla con make port e aggiorna PORT=COMx
-Il Pico non compare come unità esterna in BOOTSEL	Non hai tenuto premuto il pulsante BOOTSEL	Premi e tieni premuto il tasto prima di collegare il Pico
-Compilazione fallita	Librerie mancanti	Assicurati che tutte le librerie siano presenti nella cartella lib/ o installate tramite arduino-cli
-Il monitor seriale non mostra nulla	Baud rate errato o porta sbagliata	Verifica che nel codice e nel Makefile sia impostato 115200 e la porta corretta
 
-✅ Ora sei pronto a compilare, caricare e monitorare il tuo codice su Raspberry Pi Pico o Pico W direttamente dal terminale!
+
+| Problem | Possible Cause | Solution |
+| :-- | :-- | :-- |
+| Pico not listed in COM ports | Driver not installed | Install Pico USB drivers or use **BOOTSEL** mode |
+| `make upload` command fails | Incorrect COM port | Check with `make port` and update `PORT=COMx` |
+| Pico not appearing as external drive (BOOTSEL) | BOOTSEL button not held | Hold BOOTSEL before connecting Pico |
+| Compilation failed | Missing libraries | Make sure all libraries are in `lib/` or installed via `arduino-cli` |
+| Serial monitor shows nothing | Wrong baud rate or port | Ensure both code and Makefile have **115200** and the correct port |
