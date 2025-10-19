@@ -1,4 +1,4 @@
-#line 1 "C:\\Users\\Titania\\Desktop\\isaac\\picolowlevel_x_vs\\PicoLowLevel\\lib\\AbsoluteEncoder\\src\\AbsoluteEncoder.h"
+#line 1 "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\AbsoluteEncoder\\src\\AbsoluteEncoder.h"
 #ifndef ABSOLUTE_ENCODER_H
 #define ABSOLUTE_ENCODER_H
 

@@ -1,17 +1,14 @@
-#line 1 "C:\\Users\\Titania\\Desktop\\isaac\\picolowlevel_x_vs\\PicoLowLevel\\lib\\SmartMotor\\src\\SmartMotor.h"
+#line 1 "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\SmartMotor\\src\\SmartMotor.h"
 #ifndef SMART_MOTOR_H
 #define SMART_MOTOR_H
 
 #include <Arduino.h>
-#include "../../Debug/src/Debug.h"
-#include "../../Motor/src/Motor.h"
-#include "../../TractionEncoder/src/TractionEncoder.h"
-#include "../../TractionEncoder/src/MovingAvgFilter.h"
 
-#include "../../TractionEncoder/src/ExpSmoothingFilter.h"
-#include "../../PID/src/PID.h"
-
-
+#include "Motor.h"
+#include "TractionEncoder.h"
+#include "PID.h"
+#include "MovingAvgFilter.h"
+#include "Debug.h"
 /**
  * Class used to control DC motors at a constant speed.
  * Relies on a PID controller receiving data from a rotary encoder that uses a PIO state machine to reduce CPU usage and increase reliability.

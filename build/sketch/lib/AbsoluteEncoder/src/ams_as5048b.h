@@ -1,4 +1,4 @@
-#line 1 "C:\\Users\\Titania\\Desktop\\isaac\\picolowlevel_x_vs\\PicoLowLevel\\lib\\AbsoluteEncoder\\src\\ams_as5048b.h"
+#line 1 "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\AbsoluteEncoder\\src\\ams_as5048b.h"
 /**************************************************************************/
 /*!
     @file     ams_as5048b.h
@@ -53,7 +53,7 @@
 #include <Wire.h>
 
 // custom debug class
-#include "../../Debug/Debug.h"
+#include "../../Debug/src/Debug.h"
 
 
 #ifndef _AMS_AS5048B_H_

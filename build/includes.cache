@@ -2,235 +2,345 @@
   {
     "Sourcefile": null,
     "Include": "",
-    "Includepath": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\cores\\rp2040"
+    "Includepath": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\cores\\rp2040"
   },
   {
     "Sourcefile": null,
     "Include": "",
-    "Includepath": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\variants\\rpipico"
+    "Includepath": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\variants\\rpipico"
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Desktop\\isaac\\picolowlevel_x_vs\\PicoLowLevel\\build\\sketch\\PicoLowLevel.ino.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\build\\sketch\\MAKEFILE-ARDUINO-CLI.ino.cpp",
     "Include": "Wire.h",
-    "Includepath": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\Wire\\src"
+    "Includepath": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\Wire\\src"
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Desktop\\isaac\\picolowlevel_x_vs\\PicoLowLevel\\build\\sketch\\PicoLowLevel.ino.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\build\\sketch\\MAKEFILE-ARDUINO-CLI.ino.cpp",
     "Include": "SPI.h",
-    "Includepath": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\SPI\\src"
+    "Includepath": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\SPI\\src"
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Desktop\\isaac\\picolowlevel_x_vs\\PicoLowLevel\\build\\sketch\\PicoLowLevel.ino.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\build\\sketch\\MAKEFILE-ARDUINO-CLI.ino.cpp",
+    "Include": "AbsoluteEncoder.h",
+    "Includepath": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\AbsoluteEncoder\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\build\\sketch\\MAKEFILE-ARDUINO-CLI.ino.cpp",
+    "Include": "Battery.h",
+    "Includepath": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\Battery\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\build\\sketch\\MAKEFILE-ARDUINO-CLI.ino.cpp",
+    "Include": "DynamixelSerial.h",
+    "Includepath": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\DynamixelSerial\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\build\\sketch\\MAKEFILE-ARDUINO-CLI.ino.cpp",
+    "Include": "TractionEncoder.h",
+    "Includepath": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\TractionEncoder\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\build\\sketch\\MAKEFILE-ARDUINO-CLI.ino.cpp",
+    "Include": "Debug.h",
+    "Includepath": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\Debug\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\build\\sketch\\MAKEFILE-ARDUINO-CLI.ino.cpp",
+    "Include": "mcp2515.h",
+    "Includepath": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\Can\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\build\\sketch\\MAKEFILE-ARDUINO-CLI.ino.cpp",
+    "Include": "Display.h",
+    "Includepath": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\Display\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\build\\sketch\\MAKEFILE-ARDUINO-CLI.ino.cpp",
     "Include": "Adafruit_GFX.h",
-    "Includepath": "C:\\Users\\Titania\\Documents\\Arduino\\libraries\\Adafruit_GFX_Library"
+    "Includepath": "C:\\Users\\franc\\Documents\\Arduino\\libraries\\Adafruit_GFX_Library"
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Desktop\\isaac\\picolowlevel_x_vs\\PicoLowLevel\\build\\sketch\\PicoLowLevel.ino.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\build\\sketch\\MAKEFILE-ARDUINO-CLI.ino.cpp",
     "Include": "Adafruit_I2CDevice.h",
-    "Includepath": "C:\\Users\\Titania\\Documents\\Arduino\\libraries\\Adafruit_BusIO"
+    "Includepath": "C:\\Users\\franc\\Documents\\Arduino\\libraries\\Adafruit_BusIO"
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Desktop\\isaac\\picolowlevel_x_vs\\PicoLowLevel\\build\\sketch\\PicoLowLevel.ino.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\build\\sketch\\MAKEFILE-ARDUINO-CLI.ino.cpp",
     "Include": "Adafruit_SH110X.h",
-    "Includepath": "C:\\Users\\Titania\\Documents\\Arduino\\libraries\\Adafruit_SH110X"
+    "Includepath": "C:\\Users\\franc\\Documents\\Arduino\\libraries\\Adafruit_SH110X"
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Desktop\\isaac\\picolowlevel_x_vs\\PicoLowLevel\\build\\sketch\\PicoLowLevel.ino.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\build\\sketch\\MAKEFILE-ARDUINO-CLI.ino.cpp",
     "Include": "WiFi.h",
-    "Includepath": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\WiFi\\src"
+    "Includepath": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\WiFi\\src"
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Desktop\\isaac\\picolowlevel_x_vs\\PicoLowLevel\\build\\sketch\\PicoLowLevel.ino.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\build\\sketch\\MAKEFILE-ARDUINO-CLI.ino.cpp",
     "Include": "LwipIntfDev.h",
-    "Includepath": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\lwIP_Ethernet\\src"
+    "Includepath": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\lwIP_Ethernet\\src"
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Desktop\\isaac\\picolowlevel_x_vs\\PicoLowLevel\\build\\sketch\\PicoLowLevel.ino.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\build\\sketch\\MAKEFILE-ARDUINO-CLI.ino.cpp",
     "Include": "Updater.h",
-    "Includepath": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\Updater\\src"
+    "Includepath": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\Updater\\src"
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Desktop\\isaac\\picolowlevel_x_vs\\PicoLowLevel\\build\\sketch\\PicoLowLevel.ino.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\build\\sketch\\MAKEFILE-ARDUINO-CLI.ino.cpp",
     "Include": "MD5Builder.h",
-    "Includepath": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\MD5Builder\\src"
+    "Includepath": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\MD5Builder\\src"
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Desktop\\isaac\\picolowlevel_x_vs\\PicoLowLevel\\build\\sketch\\PicoLowLevel.ino.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\build\\sketch\\MAKEFILE-ARDUINO-CLI.ino.cpp",
+    "Include": "SmartMotor.h",
+    "Includepath": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\SmartMotor\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\build\\sketch\\MAKEFILE-ARDUINO-CLI.ino.cpp",
+    "Include": "Motor.h",
+    "Includepath": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\Motor\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\build\\sketch\\MAKEFILE-ARDUINO-CLI.ino.cpp",
+    "Include": "PID.h",
+    "Includepath": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\PID\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\build\\sketch\\MAKEFILE-ARDUINO-CLI.ino.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\Wire\\src\\Wire.cpp",
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\Wire\\src\\Wire.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\SPI\\src\\SPI.cpp",
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\SPI\\src\\SPI.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Documents\\Arduino\\libraries\\Adafruit_GFX_Library\\Adafruit_GFX.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\AbsoluteEncoder\\src\\AbsoluteEncoder.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Documents\\Arduino\\libraries\\Adafruit_GFX_Library\\Adafruit_GrayOLED.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\AbsoluteEncoder\\src\\ams_as5048b.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Documents\\Arduino\\libraries\\Adafruit_GFX_Library\\Adafruit_SPITFT.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\Battery\\src\\Battery.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Documents\\Arduino\\libraries\\Adafruit_GFX_Library\\glcdfont.c",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\DynamixelSerial\\src\\DynamixelSerial.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Documents\\Arduino\\libraries\\Adafruit_BusIO\\Adafruit_BusIO_Register.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\TractionEncoder\\src\\TractionEncoder.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Documents\\Arduino\\libraries\\Adafruit_BusIO\\Adafruit_GenericDevice.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\Debug\\src\\Debug.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Documents\\Arduino\\libraries\\Adafruit_BusIO\\Adafruit_I2CDevice.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\Can\\src\\CanWrapper.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Documents\\Arduino\\libraries\\Adafruit_BusIO\\Adafruit_SPIDevice.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\Can\\src\\mcp2515.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Documents\\Arduino\\libraries\\Adafruit_SH110X\\Adafruit_SH1106G.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\Display\\src\\Display.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Documents\\Arduino\\libraries\\Adafruit_SH110X\\Adafruit_SH1107.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Documents\\Arduino\\libraries\\Adafruit_GFX_Library\\Adafruit_GFX.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\Documents\\Arduino\\libraries\\Adafruit_SH110X\\Adafruit_SH110X.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Documents\\Arduino\\libraries\\Adafruit_GFX_Library\\Adafruit_GrayOLED.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\WiFi\\src\\BearSSLHelpers.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Documents\\Arduino\\libraries\\Adafruit_GFX_Library\\Adafruit_SPITFT.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\WiFi\\src\\CertStoreBearSSL.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Documents\\Arduino\\libraries\\Adafruit_GFX_Library\\glcdfont.c",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\WiFi\\src\\WiFiClass.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Documents\\Arduino\\libraries\\Adafruit_BusIO\\Adafruit_BusIO_Register.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\WiFi\\src\\WiFiClient.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Documents\\Arduino\\libraries\\Adafruit_BusIO\\Adafruit_GenericDevice.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\WiFi\\src\\WiFiClientSecureBearSSL.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Documents\\Arduino\\libraries\\Adafruit_BusIO\\Adafruit_I2CDevice.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\WiFi\\src\\WiFiMulti.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Documents\\Arduino\\libraries\\Adafruit_BusIO\\Adafruit_SPIDevice.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\WiFi\\src\\WiFiNTP.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Documents\\Arduino\\libraries\\Adafruit_SH110X\\Adafruit_SH1106G.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\WiFi\\src\\WiFiServer.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Documents\\Arduino\\libraries\\Adafruit_SH110X\\Adafruit_SH1107.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\WiFi\\src\\WiFiServerSecureBearSSL.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Documents\\Arduino\\libraries\\Adafruit_SH110X\\Adafruit_SH110X.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\WiFi\\src\\WiFiUdp.cpp",
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\WiFi\\src\\BearSSLHelpers.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\WiFi\\src\\dhcpserver\\dhcpserver.c",
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\WiFi\\src\\CertStoreBearSSL.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\lwIP_Ethernet\\src\\LwipEthernet.cpp",
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\WiFi\\src\\WiFiClass.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\lwIP_Ethernet\\src\\LwipIntf.cpp",
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\WiFi\\src\\WiFiClient.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\lwIP_Ethernet\\src\\LwipIntfCB.cpp",
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\WiFi\\src\\WiFiClientSecureBearSSL.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\Updater\\src\\Updater.cpp",
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\WiFi\\src\\WiFiMulti.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\WiFi\\src\\WiFiNTP.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\WiFi\\src\\WiFiServer.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\WiFi\\src\\WiFiServerSecureBearSSL.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\WiFi\\src\\WiFiUdp.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\WiFi\\src\\dhcpserver\\dhcpserver.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\lwIP_Ethernet\\src\\LwipEthernet.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\lwIP_Ethernet\\src\\LwipIntf.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\lwIP_Ethernet\\src\\LwipIntfCB.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\Updater\\src\\Updater.cpp",
     "Include": "LittleFS.h",
-    "Includepath": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\LittleFS\\src"
+    "Includepath": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\LittleFS\\src"
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\Updater\\src\\Updater.cpp",
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\Updater\\src\\Updater.cpp",
     "Include": "PicoOTA.h",
-    "Includepath": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\PicoOTA\\src"
+    "Includepath": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\PicoOTA\\src"
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\Updater\\src\\Updater.cpp",
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\Updater\\src\\Updater.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\MD5Builder\\src\\MD5Builder.cpp",
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\MD5Builder\\src\\MD5Builder.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\LittleFS\\src\\LittleFS.cpp",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\SmartMotor\\src\\SmartMotor.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\LittleFS\\src\\lfs.c",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\Motor\\src\\Motor.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\LittleFS\\src\\lfs_util.c",
+    "Sourcefile": "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\PID\\src\\PID.cpp",
     "Include": "",
     "Includepath": null
   },
   {
-    "Sourcefile": "C:\\Users\\Titania\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.4.4\\libraries\\PicoOTA\\src\\PicoOTA.cpp",
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\LittleFS\\src\\LittleFS.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\LittleFS\\src\\lfs.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\LittleFS\\src\\lfs_util.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\franc\\AppData\\Local\\Arduino15\\packages\\rp2040\\hardware\\rp2040\\4.6.1\\libraries\\PicoOTA\\src\\PicoOTA.cpp",
     "Include": "",
     "Includepath": null
   }

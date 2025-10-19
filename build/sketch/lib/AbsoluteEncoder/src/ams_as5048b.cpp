@@ -1,4 +1,4 @@
-#line 1 "C:\\Users\\Titania\\Desktop\\isaac\\picolowlevel_x_vs\\PicoLowLevel\\lib\\AbsoluteEncoder\\src\\ams_as5048b.cpp"
+#line 1 "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\AbsoluteEncoder\\src\\ams_as5048b.cpp"
 /**************************************************************************/
 /*!
     @file     ams_as5048b.cpp

@@ -1,8 +1,7 @@
-#line 1 "C:\\Users\\Titania\\Desktop\\isaac\\picolowlevel_x_vs\\PicoLowLevel\\lib\\TractionEncoder\\src\\MovingAvgFilter.h"
+#line 1 "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\TractionEncoder\\src\\MovingAvgFilter.h"
 #ifndef MOVING_AVG_FILTER_H
 #define MOVING_AVG_FILTER_H
-#include <Arduino.h>
-#include "Filter.h"
+
 
 /**
  * Class for a moving average filter implementing the Filter interface.

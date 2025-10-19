@@ -1,4 +1,4 @@
-#line 1 "C:\\Users\\Titania\\Desktop\\isaac\\picolowlevel_x_vs\\PicoLowLevel\\lib\\SmartMotor\\src\\SmartMotor.cpp"
+#line 1 "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\SmartMotor\\src\\SmartMotor.cpp"
 #include "SmartMotor.h"
 
 /**
