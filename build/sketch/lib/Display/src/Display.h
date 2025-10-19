@@ -1,4 +1,4 @@
-#line 1 "C:\\Users\\Titania\\Desktop\\isaac\\picolowlevel_x_vs\\PicoLowLevel\\lib\\Display\\src\\Display.h"
+#line 1 "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\Display\\src\\Display.h"
 #ifndef Display_h
 #define Display_h
 

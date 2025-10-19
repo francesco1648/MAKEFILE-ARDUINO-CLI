@@ -1,35 +1,27 @@
-# PicoLowLevel
+# Description
 
-This is the code running on the board inside each module of Rese.Q.
+Development of a Makefile capable of managing the entire process of compiling and uploading (both in BOOTSEL mode and through the serial port) an Arduino IDE project.
+In this example, the code related to the PicoLowLevel board is used, but the same Makefile can easily be adapted to compile any other `.ino` sketch.
 
-## Module components
+# Important note
 
-The components inside each modules are:
+The name of the main folder must be identical to the name of the main `.ino` file (top header) that you want to compile, and the Makefile must be located in the same folder as the main `.ino` file (top header).
+Furthermore, the project structure must follow the format below:
 
-- Raspberry Pi Pico W
-- CAN transceiver, with MCP2515 and TJA1050
-- Two  DC motors
-  - controlled by Pololu G2 24v13 drivers
-  - rotary encoder with 48 pulses per motor rotation
-  - 150:1 gearbox
-- One to three Dynamixel AX-12A smart servo motors
-- AMS AS5048B absolute encoder
-- 64*128 OLED display with SH1106 driver
+```bash
+my_project/              ← main folder (SKETCH_PATH)
+├── my_project.ino       ← main file
+├── include/             ← optional header files (.h)
+├── lib/                 ← optional custom libraries
+│   ├── libA/
+│   │   └── src/
+│   │       ├── file.cpp
+│   │       └── file.h
+│   └── libB/
+│       └── src/
+│           ├── file.cpp
+│           └── file.h
+├── Makefile             ← this file
+└── build/               ← (automatically created)
+```
 
-## Building
-
-To build the project you need a working Arduino environment. This can be either the official Arduino IDE, VSCode with the [Arduino extension](https://github.com/microsoft/vscode-arduino), or even simply [arduino-cli](https://github.com/arduino/arduino-cli).
-
-### Arduino-Pico
-
-This project is based on the Arduino framework, and in particular uses the Raspberry Pi Pico available [here](https://github.com/earlephilhower/arduino-pico). The guide on how to install the core can be found in the repository's README.
-
-### Libraries
-
-Currently the only external library we are using is the `Adafruit SH110X` library, used to control the display. It can be found in Arduino's library manager.
-
-### Build options
-
-In the Arduino IDE the Raspberry Pi Pico W board should be selected, and the flash size should be set to `2MB (Sketch: 1MB, FS: 1MB)`, meaning that half of the microcontroller memory will be dedicated to the program itself, while the other half can be used for storing informations and performing over-the-air (OTA) upgrades.
-
-#roba da installare attraverso i comandi

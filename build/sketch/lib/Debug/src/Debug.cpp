@@ -1,4 +1,4 @@
-#line 1 "C:\\Users\\Titania\\Desktop\\isaac\\picolowlevel_x_vs\\PicoLowLevel\\lib\\Debug\\src\\Debug.cpp"
+#line 1 "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\Debug\\src\\Debug.cpp"
 #include "Debug.h"
 
 /**

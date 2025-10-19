@@ -1,4 +1,4 @@
-#line 1 "C:\\Users\\Titania\\Desktop\\isaac\\picolowlevel_x_vs\\PicoLowLevel\\include\\definitions.h"
+#line 1 "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\include\\definitions.h"
 #ifndef definitions_h
 #define definitions_h
 
@@ -16,8 +16,10 @@
 #define I2C_SENS_SDA   18
 #define I2C_SENS_SCL   19
 
-#define ABSOLUTE_ENCODER_ADDRESS 0x40 // ToDo check, maybe 0x44
-
+#define ABSOLUTE_ENCODER_ADDRESS 0x40
+//
+// Timeouts
+#define CAN_TIMEOUT 1000
 // Battery configuration
 #define BAT_LOW 11.1f
 #define BAT_NOM 12.6f
@@ -33,7 +35,7 @@
 #define DRV_TR_RIGHT_PWM  8
 
 // Motor configuration
-#define MAX_SPEED 65.f
+#define MAX_SPEED 330.f
 
 // Encoder pins
 #define ENC_TR_LEFT_A   12
@@ -45,7 +47,7 @@
 // Encoder conversion constant
 // K = 100          *       10^6        *       60      / (     48   *             74,83                    *       2 )
 //      centiRPM           microsecToSec        SecToMin       intPerRotation        transmissionRatio             transmissionRatio2
-#define ENC_TR_CONVERSION (835226)
+#define ENC_TR_CONVERSION (3125000)
 
 // Traction encoder filter samples
 #define ENC_TR_SAMPLES 10

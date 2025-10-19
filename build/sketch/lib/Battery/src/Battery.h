@@ -1,4 +1,4 @@
-#line 1 "C:\\Users\\Titania\\Desktop\\isaac\\picolowlevel_x_vs\\PicoLowLevel\\lib\\Battery\\src\\Battery.h"
+#line 1 "C:\\Users\\franc\\Desktop\\isaac\\makefile\\MAKEFILE-ARDUINO-CLI\\lib\\Battery\\src\\Battery.h"
 #ifndef BATTERY_H
 #define BATTERY_H
 
