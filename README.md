@@ -1,4 +1,4 @@
-# Description
+# Description 
 
 Development of a Makefile capable of managing the entire process of compiling and uploading (both in BOOTSEL mode and through the serial port) an Arduino IDE project.
 In this example, the code related to the PicoLowLevel board is used, but the same Makefile can easily be adapted to compile any other `.ino` sketch.
